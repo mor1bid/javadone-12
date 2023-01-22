@@ -4,18 +4,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
 /**
  * Hub
  */
 public class Hub {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException 
+    {
         Scanner work = new Scanner(System.in);
         File svd = new File("saveFile.txt");
         FileWriter saved = new FileWriter("saveFile.txt", false);
-        // BufferedReader bread = new BufferedReader(new FileReader(saved));
         boolean play = true;
         while (play)
         {
@@ -23,34 +21,36 @@ public class Hub {
             int i = 0;
             while (i == 0) 
             {
-                System.out.println("Желаете продолжить сохранённую игру, или начать новую? 1/2");
-                String choi = work.nextLine();
-                if (choi.equals("2")) 
+                if (svd.exists())
                 {
-                    i+=1;
-                }
-                else if (choi.equals("1"))
-                {
-                    try (BufferedReader bread = new BufferedReader(new FileReader(svd)))
+                    System.out.println("Желаете продолжить сохранённую игру, или начать новую? 1/2");
+                    String choi = work.nextLine();
+                    if (choi.equals("2")) 
                     {
-                        String line;
-                        String lines = "";
-                        while (((line = bread.readLine()) != null)) 
+                        i+=1;
+                    }
+                    else if (choi.equals("1"))
+                    {
+                        try (BufferedReader bread = new BufferedReader(new FileReader(svd)))
                         {
-                            lines += line;
+                            String line;
+                            String lines = "";
+                            while (((line = bread.readLine()) != null)) 
+                            {
+                                lines += line;
+                            }
+                            System.out.println(lines);
                         }
-                        System.out.println(lines);
-                        // new Setting(1, mode);
+                        catch (IOException e) 
+                        {
+                            e.printStackTrace();
+                        }
+                        System.exit(1);
                     }
-                    catch (IOException e) 
+                    else 
                     {
-                        e.printStackTrace();
+                        System.out.println("Ошибка!");
                     }
-                    System.exit(1);
-                }
-                else 
-                {
-                    System.out.println("Ошибка!");
                 }
             }
             i = 0;
