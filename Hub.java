@@ -1,19 +1,20 @@
-import java.util.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 /**
  * Hub
  */
 public class Hub {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner work = new Scanner(System.in);
-        File saved = new File("saveFile.txt");
-        try (FileWriter svd = new FileWriter("saveFile.txt")) 
-        {
+        File svd = new File("saveFile.txt");
+        FileWriter saved = new FileWriter("saveFile.txt", false);
         // BufferedReader bread = new BufferedReader(new FileReader(saved));
         boolean play = true;
         while (play)
@@ -30,7 +31,7 @@ public class Hub {
                 }
                 else if (choi.equals("1"))
                 {
-                    try (BufferedReader bread = new BufferedReader(new FileReader(saved)))
+                    try (BufferedReader bread = new BufferedReader(new FileReader(svd)))
                     {
                         String line;
                         String lines = "";
@@ -59,9 +60,28 @@ public class Hub {
                 String mode = work.nextLine();
                 if (mode.equals("1") || mode.equals("2")) 
                 {
-                    svd.write("gamemode: " + mode);
+                    saved.write(mode+"\n");
+                    saved.flush();
                     i+=1;
                     new Setting(0, mode);
+                    i = 0;
+                    while (i == 0) 
+                    {
+                        System.out.println("Новая игра? y/n");
+                        String ng = work.nextLine();
+                        if (ng.equals("n")) 
+                        {
+                            play = false;
+                        }
+                        else if (ng.equals("y")) 
+                        {
+                            i+=1;
+                        }
+                        else 
+                        {
+                            System.out.println("Ошибка!");
+                        }
+                    }
                 }
                 else 
                 {
@@ -69,10 +89,7 @@ public class Hub {
                 }
             }
         }
+        saved.close();
+        work.close();
     }
-    catch (IOException e) 
-{
-    e.printStackTrace();
-}
-}
 }

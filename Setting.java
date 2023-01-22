@@ -16,7 +16,7 @@ public class Setting {
             int p2scor = 0;
             int p2bank = 0;
             int p1bank = 0;
-            new MainGame(bank, p1scor, p2scor, p2bank, p1bank);
+            new MainGame(mode, bank, p1scor, p2scor, p2bank, p1bank);
         }
     }
 }
