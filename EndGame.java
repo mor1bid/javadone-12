@@ -21,10 +21,10 @@ public class EndGame
                     Scanner work = new Scanner(System.in);
                     System.out.println("Новая игра? y/n");
                     String ng = work.nextLine();
-                    // work.close();
                     if (ng.equals("n")) 
                     {
                         i+=1;
+                        work.close();
                         return play = false;
                     }
                     else if (ng.equals("y")) 

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Setting 
 {
-    public Setting(int load) 
+    public Setting(int load)
     {
         Scanner work = new Scanner(System.in);
         File svd = new File("saveFile.txt");
@@ -35,6 +35,7 @@ public class Setting
         else 
         {
             int i = 0;
+            int bank = 0;
             String mode = "";
             while (i == 0) 
             {
@@ -48,9 +49,17 @@ public class Setting
                 {
                     System.out.println("Ошибка!");
                 }
-            }
+
             System.out.println("Введите желаемое количество конфет в общем банке: ");
-            int bank = work.nextInt();
+            try 
+            {
+                bank = work.nextInt();
+            }
+            catch (Exception e) 
+            {
+                System.out.println("Ошибка!");
+            }
+            }   
             int p1scor = 0;
             int p2scor = 0;
             int p2bank = 0;

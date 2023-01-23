@@ -37,7 +37,6 @@ public class Hub {
                     else if (choi == 1)
                     {
                         new Setting(1);
-                        System.out.println(end.endGame(play));
                         play = end.endGame(play);
                     }
                     else
@@ -47,7 +46,6 @@ public class Hub {
                 }
             }
             new Setting(0);
-            System.out.println(end.endGame(play));
             play = end.endGame(play);
         }
         work.close();
