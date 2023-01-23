@@ -25,7 +25,7 @@ public class EndGame
                     {
                         i+=1;
                         work.close();
-                        return play = false;
+                        System.exit(1);
                     }
                     else if (ng.equals("y")) 
                     {

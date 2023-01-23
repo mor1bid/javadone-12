@@ -24,7 +24,6 @@ public class Setting
                     lines += line;
                 }
                 List<String> slot = Arrays.asList(lines.split(" "));
-                System.out.println(Arrays.asList(slot));
                 new MainGame(Integer.parseInt(slot.get(0)), slot.get(1), Integer.parseInt(slot.get(2)), Integer.parseInt(slot.get(3)), Integer.parseInt(slot.get(4)), Integer.parseInt(slot.get(5)), Integer.parseInt(slot.get(6)));
             }
             catch (IOException e) 
