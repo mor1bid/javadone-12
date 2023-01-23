@@ -7,7 +7,8 @@ import java.util.Random;
 import java.util.Arrays;
 import java.util.List;
 
-public class Setting {
+public class Setting 
+{
     public Setting(int load) 
     {
         Scanner work = new Scanner(System.in);
@@ -45,7 +46,7 @@ public class Setting {
                 }
                 else 
                 {
-                    System.out.println("Ошибка!");
+                    System.out.println("Ошибка! ОТКУДА БЛЯТь");
                 }
             }
             System.out.println("Введите желаемое количество конфет в общем банке: ");

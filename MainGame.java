@@ -36,10 +36,10 @@ public class MainGame
                             System.out.println("Игра приостановлена.");
                             System.exit(1);
                         }
-                        else if (Character.isDigit(pl1.charAt(0)) || Character.isDigit(pl1.charAt(0)) && Character.isDigit(pl1.charAt(1))) 
+                        else if (pl1.length() == 1 && Character.isDigit(pl1.charAt(0)) || pl1.length() > 1 && Character.isDigit(pl1.charAt(0)) && Character.isDigit(pl1.charAt(1))) 
                         {
-                            i+=1;
                             p1mo = Integer.parseInt(pl1);
+                            i+=1;
                         }
                         else 
                         {
@@ -118,7 +118,9 @@ public class MainGame
                         bank -= p2mo;
                     }
                     System.out.println("Игрок 2 получил " + p2scor + " конфет(ы)! \n");
-                        
+
+                    System.out.println("\n(s) Приостановить игру");
+                    System.out.println("Игрок 1 - " + p1bank + " конфет\nИгрок 2 - " + p2bank + " конфет\nБанк - " + bank + " конфет\n");
                     System.out.println("Игрок 1, введите желаемое кол-во конфет: ");
                     int i = 0;
                     while (i == 0) 
@@ -129,17 +131,17 @@ public class MainGame
                             System.out.println("Игра приостановлена.");
                             System.exit(1);
                         }
-                        else if (Character.isDigit(pl1.charAt(0)) || Character.isDigit(pl1.charAt(0)) && Character.isDigit(pl1.charAt(1))) 
+                        else if (pl1.length() == 1 && Character.isDigit(pl1.charAt(0)) || pl1.length() > 1 && Character.isDigit(pl1.charAt(0)) && Character.isDigit(pl1.charAt(1))) 
                         {
-                            i+=1;
                             p1mo = Integer.parseInt(pl1);
+                            i+=1;
                         }
                         else 
                         {
                             System.out.println("Ошибка!");
                         }
                     }
-                    if (p1mo > 28 || p1mo>bank)
+                    if (p1mo > 28 || p1mo > bank)
                     {
                         System.out.println("Не жадничайте! Вы можете взять не больше чем есть в банке и не более 28 конфет за ход!");
                     }

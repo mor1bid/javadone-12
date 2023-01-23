@@ -36,43 +36,17 @@ public class Hub {
                     else if (choi == 1)
                     {
                         new Setting(1);
-                        System.exit(1);
+                        new EndGame(play);
                     }
-                    else 
+                    else
                     {
                         System.out.println("Ошибка!");
                     }
                 }
             }
             new Setting(0);
-            i = 0;
-            while (i == 0) 
-            {
-                try 
-                {
-                    Files.deleteIfExists(del);
-                }
-                catch (IOException x) 
-                {
-                    System.err.println(x);
-                }
-                    System.out.println("Новая игра? y/n");
-                        String ng = work.nextLine();
-                        if (ng.equals("n")) 
-                        {
-                            play = false;
-                            i+=1;
-                        }
-                        else if (ng.equals("y")) 
-                        {
-                            i+=1;
-                        }
-                        else 
-                        {
-                            System.out.println("Ошибка!");
-                        }
-                    }
-                }
+            new EndGame(play);
+        }
         work.close();
     }
 }
