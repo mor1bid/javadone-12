@@ -11,6 +11,7 @@ public class Hub {
         File svd = new File("saveFile.txt");
         Path del = FileSystems.getDefault().getPath("saveFile.txt");
         boolean play = true;
+        EndGame end = new EndGame(); // для объявления методов из других классов без использования перегрузки
         while (play)
         {
             System.out.println("Здравствуйте!");
@@ -36,7 +37,8 @@ public class Hub {
                     else if (choi == 1)
                     {
                         new Setting(1);
-                        new EndGame(play);
+                        System.out.println(end.endGame(play));
+                        play = end.endGame(play);
                     }
                     else
                     {
@@ -45,7 +47,8 @@ public class Hub {
                 }
             }
             new Setting(0);
-            new EndGame(play);
+            System.out.println(end.endGame(play));
+            play = end.endGame(play);
         }
         work.close();
     }

@@ -60,6 +60,8 @@ public class MainGame
                         
                     if (mode.equals("1")) 
                     {
+                        System.out.println("(s) Приостановить игру");
+                        System.out.println("Игрок 1 - " + p1bank + " конфет\nИгрок 2 - " + p2bank + " конфет\nБанк - " + bank + " конфет\n");
                         System.out.println("Игрок 2, введите желаемое кол-во конфет: ");
                         p2mo = work.nextInt();
                     }
@@ -119,7 +121,7 @@ public class MainGame
                     }
                     System.out.println("Игрок 2 получил " + p2scor + " конфет(ы)! \n");
 
-                    System.out.println("\n(s) Приостановить игру");
+                    System.out.println("(s) Приостановить игру");
                     System.out.println("Игрок 1 - " + p1bank + " конфет\nИгрок 2 - " + p2bank + " конфет\nБанк - " + bank + " конфет\n");
                     System.out.println("Игрок 1, введите желаемое кол-во конфет: ");
                     int i = 0;

@@ -46,7 +46,7 @@ public class Setting
                 }
                 else 
                 {
-                    System.out.println("Ошибка! ОТКУДА БЛЯТь");
+                    System.out.println("Ошибка!");
                 }
             }
             System.out.println("Введите желаемое количество конфет в общем банке: ");

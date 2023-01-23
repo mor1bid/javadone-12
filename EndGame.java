@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class EndGame
     {
-        public EndGame(boolean play) throws IOException
+        public boolean endGame(boolean play) throws IOException
         {
             Path del = FileSystems.getDefault().getPath("saveFile.txt");
             int i = 0;
@@ -21,10 +21,11 @@ public class EndGame
                     Scanner work = new Scanner(System.in);
                     System.out.println("Новая игра? y/n");
                     String ng = work.nextLine();
+                    // work.close();
                     if (ng.equals("n")) 
                     {
-                        play = false;
                         i+=1;
+                        return play = false;
                     }
                     else if (ng.equals("y")) 
                     {
@@ -35,5 +36,6 @@ public class EndGame
                         System.out.println("Ошибка!");
                     }
                 }
+            return play;
         }
     }
